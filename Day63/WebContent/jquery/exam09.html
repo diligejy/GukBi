@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<style type="text/css">
+.yellow {
+	background-color: yellow;
+}
+</style>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#btnClick").bind("mouseover", function() {
+			$("#btnClick").addClass("yellow");
+		}).bind("mouseout", function() {
+			$(this).removeClass("yellow");
+		});
+		var message = "Spoon!";
+		$("#foo").bind("click", {
+			res_msg : message
+		}, function(event) {
+			alert(event.data.res_msg);
+		});
+	});
+</script>
+
+</head>
+<body>
+	<div id="foo">곰돌이 푸</div>
+	<div id="btnClick">클릭하세요</div>
+</body>
+</html>

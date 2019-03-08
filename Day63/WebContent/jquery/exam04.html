@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<style type="text/css">
+.redColor {
+	background-color: red;
+}
+
+.blueColor {
+	background-color: #51eafe;
+	color : green;
+}
+</style>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("tr:odd").addClass("redColor"); //홀수번째 배경색
+		$("table tr:even").addClass('blueColor'); //짝수번째 배경색
+	});
+</script>
+
+</head>
+<body>
+	<table>
+		<tr>
+			<td>Windows Server</td>
+		</tr>
+		<tr>
+			<td>SQL Server</td>
+		</tr>
+	</table>
+</body>
+</html>

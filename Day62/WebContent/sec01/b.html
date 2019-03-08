@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<img id="abc" name="img1" src="park.jpg" border=2 align=bottom alt="미니">
+	<script type="text/javascript">
+		/* 
+		getElementsById() : 요소 하나를 ID로 찾아올 때 사용
+		getElementsByName() : 하나 이상의 그룹으로 된 요소를 이름으로 찾아올 때 사용
+		getElementsByTagName() : 요소하나 이상을 태그 이름으로 찾아올 때 사용
+		 */
+		document.write("<br>");
+		document.write("src:" + document.img1.src + "<br>");
+		document.write("width:" + document.img1.width + "<br>");
+		document.write("size:" + document.img1.size + "<br>");
+		document.write("border:" + document.img1.border + "<br>");
+		var img_res = document.getElementsByTagName("img");
+		document.write(img_res.img1.src);
+
+		document.write("<hr>");
+		var img_res01 = document.getElementsByName("img1");
+		document.write( img_res01.src+ "<br>");//nodeList
+
+		img_res01 = document.getElementById("abc");//Object
+		document.write(img_res01.src + "<br>");
+		
+		
+	</script>
+	<form>
+	A : <input type = "checkbox" value = "a" name = "aa"> <br/>
+	B : <input type = "checkbox" value = "b" name = "aa"> <br/>
+	C : <input type = "checkbox" value = "c" name = "aa"> <br/>
+	D : <input type = "checkbox" value = "d" name = "aa"> <br/>
+	<input type = "button" value = "abc" onclick = "res()"/>
+	
+	<input type = "submit" value = "확인"G>
+	</form>
+	<script type="text/javascript">
+	function res(){
+		alert("abc");
+	}
+	
+	var name_01 = document.getElementsByName("aa");
+	document.write(name_01);
+	document.write(name_01.length);
+	for (var i = 0; i < name_01.length; i++) {
+		  var item = name_01[i];
+		  document.write("<br>" + item.value );
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<style type="text/css">
+.redColor {
+	color: Red;
+}
+
+.blueColor {
+	color: Blue;
+}
+</style>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("td:contains('Phone')")
+		.siblings()
+		.addClass("redColor")
+		.parent()
+		.find("td:eq(0)")
+		.addClass("blueColor").parent().siblings().find("td:contains('Address')").addClass("redColor");
+	});
+</script>
+<title>Insert title here</title>
+</head>
+<body>
+	<table>
+		<tr>
+			<td>Name</td>
+			<td>이름</td>
+		</tr>
+		<tr>
+			<td>Address</td>
+			<td>주소</td>
+		</tr>
+		<tr>
+			<td>Phone</td>
+			<td>전화번호</td>
+		</tr>
+	</table>
+</body>
+</html>

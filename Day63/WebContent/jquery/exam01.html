@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<title>Insert title here</title>
+<!--스타일 지정  -->
+<style type="text/css">
+.backColor {
+	background-color: yellow
+}
+
+.myStyle {
+	font-size: 1.5em;
+	color: red;
+}
+</style>
+<!-- jquery 적용 
+
+	1. 클래스 명이 'test'인 곳의 스타일을 backColor로 적용해보자.
+	2. 클래스 명이 'test02'인 곳의 스타일을 myStyle로 적용해보자. (font-size : 1.5em, color : red) 지정 
+-->
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.test').addClass('backColor');
+	});
+	$(document).ready(function(){
+		$('.test02').addClass('myStyle');
+	});
+</script>
+</head>
+<body>
+	<div class="test">Hello JQuery</div>
+	<br>
+	<div class="test02">Hello JQuery</div>
+</body>
+</html>

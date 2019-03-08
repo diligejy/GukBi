@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function sung(my_name, kor, eng, mat) {
+			this.name = my_name;
+			this.kor = kor;
+			this.eng = eng;
+			this.mat = mat;
+
+		this.gettot = function() {
+				tot = this.kor + eng + mat;
+				return tot;
+			}
+
+			this.getavg = function() {
+				avg = this.gettot() / 3;
+				return avg;
+			}
+			this.toString = function(){
+				return this.name + ":" + this.gettot() + ":" + this.getavg();
+			}
+		}
+		document.write("<hr>");
+		for (sungres in jumsu) {
+			document.write("no[" + [ sungres ] + "] :" + jumsu[sungres].name
+					+ ": 총점 (" + jumsu[sungres].gettot() + ") 평균 ("
+					+ jumsu[sungres].getavg() + ")<br>");
+		}
+
+		var jumsu = [];
+		jumsu[0] = new sung("도미니까", 90, 80, 70);
+		jumsu[1] = new sung("도미니꼬", 50, 60, 70);
+		jumsu[2] = new sung("폴리오", 100, 90, 80);
+
+		for (i = 0; i < jumsu.length; i++) {
+			document.write(jumsu[i].name + ":" + jumsu[i].gettot() + ":"
+					+ jumsu[i].getavg() + "<br>");
+		}
+		score_array = new Array("송진영", 80, 70, 60);
+		score_array[0] = new Array("도미니까", 90, 80, 70);
+		score_array[1] = new Array("도미니꼬", 50, 60, 70);
+		score_array[2] = new Array("폴리오", 100, 90, 80);
+		with (score_array) {
+			document.write("<h2>" + join() + "<br>");
+			document.write(join("+") + "<br>");
+			document.write(join("|") + "<br>");
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var str = "today.toJSON(today.getDay())";
+
+		//1. to를 대문자로 변환 후 전체 출력
+
+		document.write(str.replace(/to/g, "TO"));
+		//2. 전체 문자열을 소문자로 출력
+		document.write(str.toLowerCase() + "<br>");
+		//3. 문장 중에서 getDay()만 리턴
+		document.write(str.substr(19, 8) + "<br>");
+		//4. toJSON을 toXML로 변경 후 전체 출력
+		document.write(str.replace('toJSON', 'toXML'));
+	</script>
+
+
+</body>
+</html>

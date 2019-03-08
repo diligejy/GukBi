@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script type="text/javascript">
+	function getXMLHttpRequest() { //서버에 연결할 객체 생성(브라우저 정보 체크)
+		if (window.XMLHttpRequest) {
+			return new XMLHttpRequest();
+		} else {
+			return null;
+		}
+	}
+	function helloFromServer() { //서버에 연결 상태 값, 리턴 조건에 대한 결과값 처리
+		if (httpRequest.readyState == 4) {
+			if (httpRequest.status == 200) {
+				document.getElementById("resultDisplay").innerHTML = httpRequest.responseText;
+			} else {
+				alert("실패 : " + httpRequest.statusText);
+			}
+		}
+	}
+	/* 	onreadystatechange = 함수 따라서 helloFromServer도 함수
+	 */
+	function helloToServer() {
+		httpRequest = getXMLHttpRequest(); //객체 생성
+		httpRequest.onreadystatechange = helloFromServer;
+		var param = "irum=" + document.frm.name.value;
+		var url = "hello.jsp?" + param;
+
+		//void open(DOMString method, DOMString url, boolean async);
+		httpRequest.open("GET", url, true); //요청 페이지
+		httpRequest.send(null);
+	}
+</script>
+<body>
+	<form name="frm">
+		<input type="text" name="name" placeholder="이름을 입력하시오"> 
+		<input type="button" value="입력" onclick="helloToServer()">
+	</form>
+	<br>
+	<br>
+	<ul id="resultDisplay"></ul>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var myDiv = document.createElement("div");
+		var myPtag = document.createElement("p");
+		var myAtag = document.createElement("a");
+		myAtag.setAttribute("href", "#");
+		
+		//<a href = "#"> 자바스크립트 </a>
+		// body > div > p > a 
+		
+		var txt1 = document.createTextNode("자바스크립트");
+
+		myAtag.appendChild(txt1);
+		myPtag.appendChild(myAtag);
+		myDiv.appendChild(myPtag);
+
+		document.body.appendChild(myDiv);
+
+		var myUl = document.createElement("ul");
+		
+		var myUl = document.createElement("ul");
+		var myLi1 = document.createElement("li");
+		var myLi2 = document.createElement("li");
+		
+		var theAtag1 = document.createElement("a");
+		theAtag1.setAttribute("href", "http://www.nate.com");
+		
+		var theAtag2 = document.createElement("a");
+		theAtag2.setAttribute("href", "http://www.daum.net");
+		
+		var txt2 = document.createTextNode("네이트");
+		var txt3 = document.createTextNode("다음");
+		
+		theAtag1.appendChild(txt2);
+		myLi1.appendChild(theAtag1);
+		myUl.appendChild(myLi1);
+		
+		theAtag2.appendChild(txt3);
+		myLi2.appendChild(theAtag2);
+		myUl.appendChild(myLi2);
+		
+		document.body.appendChild(myUl);
+		
+		document.write("Last update : " , document.lastModified);
+		
+	</script>
+</body>
+</html>

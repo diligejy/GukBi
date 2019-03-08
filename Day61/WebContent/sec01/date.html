@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var day, week;
+		var today = new Date();
+		document.write(today);
+
+		week = new Array("일", "월", "화", "수", "목", "금", "토");
+
+		day = week[today.getDay()];
+
+		document.write("오늘은 :" + today.getFullYear() + "년"
+				+ (today.getMonth() + 1) + "월" + today.getDate() + "일" + day
+				+ "요일");
+
+		document.write("<br>" + today.toJSON(today.getDay()));
+	</script>
+</body>
+</html>

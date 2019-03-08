@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<style type="text/css">
+.redColor {
+	background-color: red;
+}
+</style>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("td:contains('빅데이터')").addClass("redColor");
+		//<td> 내 '빅데이터'란 문자열을 포함한 부분을 빨간색으로
+	});
+</script>
+</head>
+<body>
+	<table>
+		<tr>
+			<td>빅데이터 엔지니어링</td>
+		</tr>
+		<tr>
+			<td>제1강의장 빅데이터 강좌</td>
+		</tr>
+		<tr>
+			<td>제2강의장 파이썬 강좌</td>
+		</tr>
+		<tr>
+			<td>제3강의장 직무 강좌</td>
+		</tr>
+
+	</table>
+</body>
+</html>

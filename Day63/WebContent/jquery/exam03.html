@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<title>Insert title here</title>
+<style type="text/css">
+.red{
+	color : red;
+}
+.green{
+	color : green;
+}
+.blue{
+	color : blue;
+}
+</style>
+	
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("a[href*='dotnet']").addClass("red"); //* : 'dotnet'이 들어가는 링크에 red를 적용
+		$("a[href$='aspx']").addClass("green"); //& : 'aspx'로 끝나는 링크에 green적용
+		$("a[href^='mailto']").addClass("blue"); //^ : 'mailto'로 시작하는 링크에 blue적용
+	});
+</script>
+</head>
+<body>
+	<a href="http://www.dotnetkorea.com"> 닷넷코리아 </a>
+	<a href="http://playdata.io/Default.aspx">플레이데이터</a>
+	<a href="mailto:guest@guest.com">이메일</a>
+</body>
+</html>

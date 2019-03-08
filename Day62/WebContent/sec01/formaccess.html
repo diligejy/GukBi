@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function res() {
+		/* document.write(document.forms[0].name); */
+		/* 		document.write(document.forms['my_form'].name+"<br>"); */
+		document.write(document.forms['my_form'].elements['abc'].name + "<br>");
+
+		/* alert("abcd");
+		 */
+	}
+
+	function my_fun(res) {
+		/* alert(res.id.value); */
+		alert(res.id.value + ":" + res.pw.value);
+	}
+</script>
+</head>
+<body>
+	<form name="my_form" method="get" action="#">
+		<label name = "l">member_id</label> id <input type="text" name=id><br>
+		pw <input type="text" name=pw> <input name='abc' type="button"
+			value="A" onclick="my_fun(my_form)">
+	</form>
+
+</body>
+</html>

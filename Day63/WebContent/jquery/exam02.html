@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<title>Insert title here</title>
+<style type="text/css">
+.bg {
+	background-color: yellow
+}
+
+.bgred {
+	background-color: red;
+}
+
+.horizontal {
+	float: left;
+	list-style: none;
+	margin: 10px;
+}
+</style>
+<script>
+	$(document).ready(function() {
+		$("li>u").addClass("bg"); //li의 자식요소 중 u태그인것만 선별
+		//아이디가 myFavorites인 요소 중 li요소만 적용
+		$("#myFavorites>li").addClass("horizontal");
+		$("myFavorites >li:nth-child(4)").addClass("bgred");
+	});
+</script>
+</head>
+<body>
+	<h3>관심사항</h3>
+	<ul id="myFavorites">
+		<li><u>C#</u> <!-- #myFavorites > li:nth-child(1) -->
+		<li>ASP.net <!-- #myFavorites > li:nth-child(2) -->
+		<li>SilverLight
+		<li>jQuery <!-- #myFavorites > li:nth-child(4) -->
+	</ul>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<style type="text/css">
+.redColor {
+	color: Red;
+}
+</style>
+<script type="text/javascript">
+	$().ready(function() {
+		$("#a").bind("click", function() {
+			$("#mainMenu .redColor").removeClass("redColor");
+			$(this).addClass("redColor");
+		});
+
+		$("#mainMenu .redColor").bind("click", function() {
+			if (this.id == "b") {
+				alert("b가 클릭 됨");
+			} else if (this.id == "c") {
+				alert($(this).text());
+			}
+		});
+	});
+</script>
+
+</head>
+<body>
+	<div id="mainMenu">
+		<div id="a" class="redColor">AAAAA</div>
+		<div id="b" class="redColor">BBBBBBBBBB</div>
+		<div id="c" class="redColor">CCCCCCCC</div>
+	</div>
+</body>
+</html>

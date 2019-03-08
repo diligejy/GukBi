@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	myFntCnt = 1;
+	myFntFlg = 1;
+
+	function myFunc() {
+		if (myFntFlg == 1) {
+			if (myFntCnt == 30) {
+				myFntFlg = 0;
+				myFntCnt--;
+
+			} else {
+				myFntCnt++;
+			}
+		} else {
+			if (myFntCnt == 1) {
+				myFntFlg = 1;
+				myFntCnt++;
+			} else {
+				myFntCnt--;
+			}
+		}
+		document.getElementById("osusume").style.fontSize = myFntCnt + "pt";
+	}
+</script>
+</head>
+<body id="pe" style="border: 15px solid grey">
+	<br>
+	<br>
+	<div id="osusume" style="height: 100px; font-size: 1.0em">
+		이번 주 추천! <font size="BACKGROUND-COLOR: #000000; COLOR:white">Javascript
+			강좌!!</font>
+	</div>
+	<script type="text/javascript">
+		setInterval("myFunc()", 50);
+	</script>
+</body>
+</html>

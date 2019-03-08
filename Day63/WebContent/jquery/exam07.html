@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#btnClick").bind("click", function() {
+			alert("abc");
+		});
+/* 		$("#btnClick").bind("mouseover", function() {
+			document.getElementById("btnClick").style.backgroundColor = "red";
+		});
+		$("#btnClick").bind("mouseleave", function() {
+			document.getElementById("btnClick").style.backgroundColor = "";
+		}); */
+		
+		$("#btnClick").bind({
+			  mouseover: function() {
+					this.style.backgroundColor = "red";
+			  },
+			  mouseleave: function() {
+					this.style.backgroundColor = "";
+			  }
+			});
+	});
+</script>
+</head>
+<body>
+	<div id="btnClick">클릭하세요</div>
+</body>
+</html>
