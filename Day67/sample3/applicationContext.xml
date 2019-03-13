@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Date(int year, int month, int date)를 생성해서 UserVo의 setMy_date(Date my_date)를 
+		연결하기 위해서 -->
+	<bean id="mdate" class="java.util.Date">
+		<constructor-arg value="2019"></constructor-arg>
+		<constructor-arg value="03"></constructor-arg>
+		<constructor-arg value="12"></constructor-arg>
+	</bean>
+	<!-- void setPer(Properties per)로 전달하기 위해 Properties 객체 선언 -->
+
+	<bean id="mper" class="java.util.Properties" />
+
+	<bean id="mvo" class="sample3.UserVo">
+		<constructor-arg value = "홍길동"/>
+		<property name="my_date" ref="mdate" />
+		<property name="per">
+			<value>
+				a=1, b=2, c=3
+			</value>
+		</property>
+	</bean>
+
+	<bean id="my" class="sample3.UserServiceImpl" />
+</beans>

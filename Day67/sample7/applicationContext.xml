@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="1" class="sample7.FileOutput">
+		<property name="filePath" value="data.txt" />
+	</bean>
+	<bean id="2" class="sample7.MessageBeanImpl">
+		<constructor-arg name="name" value = "송진영"> </constructor-arg>
+		<property name="phone" value = "02-000-0000"></property>
+		<property name="outputter" ref = "1"></property>
+	</bean>
+</beans>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+reference
+
+	<bean id="developer" class="sample6.Developer">
+		<constructor-arg index="0" value="세종대왕" />
+		<constructor-arg index="1" value="1500000" />
+		<constructor-arg index="2" value="개발1팀" />
+	</bean>
+	<bean id="engineer" class="sample6.Engineer">
+		<constructor-arg index="0" value="이순신" />
+		<constructor-arg index="1" value="2500000" />
+		<constructor-arg index="2" value="기술1팀" />
+	</bean>
+	<bean id="myemp" class="sample6.Developer">
+		<constructor-arg index="0" value="강감찬" />
+		<constructor-arg index="1" value="2000000" />
+		<constructor-arg index="2" value="기술2팀" />
+	</bean>
+
+	<bean id="myres" class="sample6.MyRes">
+		<property name="emp" ref="myemp" />
+
+	</bean>
+</beans>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="my01" class="sample1.MessageBeanImpl" lazy-init="default" />
+	<bean id="my02" class="sample1.MessageBeanImpl">
+		<constructor-arg>
+			<value>aaa</value>
+		</constructor-arg>
+		<constructor-arg>
+			<value>bbb</value>
+		</constructor-arg>
+	</bean>
+	<bean id="my03" class="sample1.MessageBeanImpl">
+		<constructor-arg>
+			<value>aaa</value>
+		</constructor-arg>
+		<constructor-arg>
+			<value>bbb</value>
+		</constructor-arg>
+	</bean>
+	<bean id="my04" class="sample1.MessageBeanImpl">
+		<constructor-arg index="1" value="222"/>
+		<constructor-arg index="0" value="111" />
+	</bean>
+
+</beans>

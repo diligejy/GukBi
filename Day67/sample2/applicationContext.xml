@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="myaddr01" class="sample2.Address" />
+	<bean id="myaddr02" class="sample2.Address">
+		<constructor-arg index="0" value=" 국현이형 " />
+		<constructor-arg index="1" value="서울시" />
+		<constructor-arg index="2" value="02-000-0000" />
+	</bean>
+	<bean id="myList01" class="sample2.ListAddress" />
+	<bean id="myList02" class="sample2.ListAddress"> 
+	<constructor-arg ref="myaddr02"/> 
+		</bean>
+	<!-- Address myaddr03 = new Address(); myaddr03.setName("정길동"); myaddr03.setAddr("제주시"); 
+		myaddr03.setTel("064-000-0000"); -->
+	<bean id="myaddr03" class="sample2.Address">
+		<property name="name" value="정길동" />
+		<property name="addr" value="제주시" />
+		<property name="tel" value="064-000-0000" />
+	</bean>
+
+	<bean id="myList03" class="sample2.ListAddress">
+		<property name="address" ref = "myaddr03" />
+	</bean>
+</beans>

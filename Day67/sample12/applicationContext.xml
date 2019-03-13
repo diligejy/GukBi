@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="fooTest" class="sample12.Foo">
+		<property name="bar" ref="bar01" />
+		<property name="date" ref="date01" />
+		<property name="number" ref="number01" />
+		<property name="list">
+			<list>
+				<value>영어</value>
+				<value>수학</value>
+				<value>국어</value>
+			</list>
+		</property>
+		<property name="array">
+			<array>
+				<value>안녕</value>
+				<value>으잉</value>
+				<value>으앙</value>
+			</array>
+		</property>
+		<property name="set">
+			<set>
+				<value>자바</value>
+				<value>웹</value>
+				<value>스프링</value>
+			</set>
+		</property>
+		<property name="map">
+			<map>
+				<entry>
+					<key>
+						<value>
+							1
+						</value>
+					</key>
+					<value>111</value>
+				</entry>
+			</map>
+		</property>
+	</bean>
+	<bean id="bar01" class="sample12.Bar">
+	</bean>
+	<bean id="date01" class="java.util.Date">
+		<constructor-arg index="0" value="2019" />
+		<constructor-arg index="1" value="03" />
+		<constructor-arg index="2" value="13" />
+	</bean>
+	<bean id="number01" class="java.lang.Integer">
+		<constructor-arg index="0" value="100" />
+	</bean>
+
+</beans>
