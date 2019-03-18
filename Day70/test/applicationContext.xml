@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+	<!-- <aop : before> 메소드 설정전에 적용 <aop : after-returning> 메소드가 정상 실행된 후에만 
+		적용 <aop : after-throwing> 메소드가 예외를 발생시킬 때에만 적용(catch 문과 비슷) <aop:after>메소드가 
+		실행된 후 무조건 적용(finally문과 비슷) <aop:around> 모든 시점에 적용 -->
+
+	<bean id="per1" class="com.test.Person01" />
+	<bean id="per2" class="com.test.Person02" />
+	<bean id="per3" class="com.test.Person03" />
+	<bean id="myAdvice" class="com.test.MyAdvice" />
+</beans>
