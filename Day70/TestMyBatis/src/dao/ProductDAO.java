@@ -34,4 +34,53 @@ public class ProductDAO {
 		return all;
 	}
 
+	// insert
+	public int getInsert(Product pro) {
+		SqlSession session = factory.openSession();
+		int all = 0;
+		try {
+			all = session.insert("ProductMapper.productInsert", pro);
+			if (all > 0) {
+				session.commit();
+			}
+		} catch (Exception e) {
+			session.rollback();
+		} finally {
+			session.close();
+		}
+		return all;
+	}
+
+	// delete
+	public int getDelete(int no) {
+		SqlSession session = factory.openSession();
+		int all = 0;
+		try {
+			all = session.delete("ProductMapper.productDelete", no);
+			if (all > 0) {
+				session.commit();
+			}
+		} catch (Exception e) {
+			session.rollback();
+		} finally {
+			session.close();
+		}
+		return all;
+	}
+	// update (= insert)
+	public int getUpdate(Product pro) { //no로 찾아서 price를 바꿔라. 
+		SqlSession session = factory.openSession();
+		int all = 0;
+		try {
+			all = session.insert("ProductMapper.productUpdate", pro);
+			if (all > 0) {
+				session.commit();
+			}
+		} catch (Exception e) {
+			session.rollback();
+		} finally {
+			session.close();
+		}
+		return all;
+	}
 }
