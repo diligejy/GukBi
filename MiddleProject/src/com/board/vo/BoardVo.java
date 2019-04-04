@@ -18,9 +18,17 @@ public class BoardVo {
 	private String r_n_id;
 	private String r_contents;
 	private String url;
-	
+	private Date r_regdate;
 	private MultipartFile file;
-	
+
+	public Date getR_regdate() {
+		return r_regdate;
+	}
+
+	public void setR_regdate(Date r_regdate) {
+		this.r_regdate = r_regdate;
+	}
+
 	public String getN_id() {
 		return n_id;
 	}
@@ -134,8 +142,7 @@ public class BoardVo {
 		return "BoardVo [no=" + no + ", title=" + title + ", viewcount=" + viewcount + ", regdate=" + regdate
 				+ ", subtitle=" + subtitle + ", n_id=" + n_id + ", contentType=" + contentType + ", contents="
 				+ contents + ", r_no=" + r_no + ", r_n_id=" + r_n_id + ", r_contents=" + r_contents + ", url=" + url
-				+ ", file=" + file + "]";
+				+ ", r_regdate=" + r_regdate + ", file=" + file + "]";
 	}
-
 
 }

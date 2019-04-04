@@ -30,7 +30,7 @@ public class BoardDaoImpl implements BoardDao, SqlInter {
 	}
 
 	@Override
-	public List<BoardVo> getAll() {
+	public List<BoardVo> getcontentAll() {
 		List<BoardVo> getAll = null;
 		String sql = "select no, title, viewcount, regdate, subtitle, n_id, contentType, contents from boarder";
 
@@ -46,10 +46,11 @@ public class BoardDaoImpl implements BoardDao, SqlInter {
 				board.setN_id(rs.getString("n_id"));
 				board.setContentType(rs.getString("contentType"));
 				board.setContents(rs.getString("contents"));
-
+				
 				return board;
 			}
 		});
+	
 		return getAll;
 	}
 
@@ -107,6 +108,35 @@ public class BoardDaoImpl implements BoardDao, SqlInter {
 	public int updateReadCount(int no) throws Exception {
 		String sql = "update boarder set viewcount = nvl(viewcount,0)+1 where no =?";
 		Object[] obj = { no };
+		return jdbcTemplate.update(sql, obj);
+	}
+
+	@Override
+	public List<BoardVo> getReplyAll() {
+		List<BoardVo> getAll = null;
+		String sql = "select no, r_no, r_n_id, r_contents, r_regdate from reply";
+
+		getAll = jdbcTemplate.query(sql, new RowMapper<BoardVo>() {
+			public BoardVo mapRow(ResultSet rs, int rowNum) throws SQLException {
+				BoardVo board = new BoardVo();
+			
+				board.setNo(rs.getInt("no"));
+				board.setR_no(rs.getInt("r_no"));
+				board.setR_n_id(rs.getString("r_n_id"));
+				board.setR_contents(rs.getString("r_contents"));
+				board.setR_regdate(rs.getDate("r_regdate"));
+				System.out.println(board);
+				return board;
+			}
+		});
+		return getAll;
+	}
+
+	@Override
+	public int replyinsert(BoardVo boardVo) {
+		
+		String sql = "insert into reply (r_no,r_n_id, r_contents, r_regdate) values (seq_reply_r_no.nextval, ?, ?, sysdate) where no = ?";
+		Object[] obj = { boardVo.getR_n_id(), boardVo.getR_contents() };
 		return jdbcTemplate.update(sql, obj);
 	}
 	

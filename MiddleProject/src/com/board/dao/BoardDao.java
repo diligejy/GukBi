@@ -7,11 +7,16 @@ import com.board.vo.BoardVo;
 
 public interface BoardDao {
 
-	public List<BoardVo> getAll();
+	public List<BoardVo> getcontentAll();
 	public int updateReadCount(int no) throws Exception;
 	public int getInsert(BoardVo boardVo);
 	public int getDelete(int no);
 	public int getUpdate(BoardVo boardVo);
 	public List<BoardVo> getFind(String n_id);
 	public BoardVo readContent(int no) throws Exception;
+	
+	
+	public List<BoardVo> getReplyAll();
+	public int replyinsert(BoardVo boardVo);
+	
 }

@@ -24,9 +24,9 @@ create table boarder(
 create table reply(
                no number(4) references boarder(no),
                r_no number(4) primary key,
-               n_id varchar2(20) references member(n_id),
-               r_contents varchar2(500) not null,
-               r_regdate date not null
+               r_n_id varchar2(20) references member(n_id),
+               r_contents varchar2(500),
+               r_regdate date 
               ); 
                
 create sequence seq_boarder_no
@@ -42,7 +42,7 @@ nocycle
 nocache;         
 
 select * from boarder;
-//no title viewcount regdate subtitle n_id contentType contents 8개 컬럼
+//no title viewcount regdate subtitle r_n_id contentType contents 8개 컬럼
 insert into boarder values(seq_boarder_no.nextval,'따로 표현하는 방법은',232,'19-03-28','정보','유저01','1','이는 어느 한 ... 합니다.');
 insert into boarder values(seq_boarder_no.nextval,'관계형 데이터베이스',22,'19-03-27','정보','유저02','1','이는 어느 한 ... 슈퍼키란, 튜플을 유일하게 식별할 수 있는 하나의 속성 혹은 속성의 집합을 말합니다.');
 insert into boarder values(seq_boarder_no.nextval,' 키는 각각 튜플',123,'19-03-26','정보','유저03','1','이는 어느 한 ... 슈퍼키란, 튜플을 유일하게 식별할 수 있는 하나의 속성 혹은 속성의 집합을 말합니다.');
@@ -58,9 +58,9 @@ insert into boarder values(seq_boarder_no.nextval,'행 추락사 10대들…최대 징역 1
 
    
    
-//no r_no n_id r_contents
-insert into reply values(1,seq_reply_no.nextval,'유저01','계층구조로 정렬하기.  출처: https://blog.kjslab.com/11','19-03-28'); 
-insert into reply values(1,seq_reply_no.nextval,'유저02','계층구조로 정렬하기.  출처: https://blog.kjslab.com/11','19-03-29'); 
+//no r_no r_n_id r_contents
+insert into reply values(75,seq_reply_no.nextval,'유저01','계층구조로 정렬하기.  출처: https://blog.kjslab.com/11','19-03-28'); 
+insert into reply values(77,seq_reply_no.nextval,'유저02','계층구조로 정렬하기.  출처: https://blog.kjslab.com/11','19-03-29'); 
 insert into reply values(1,seq_reply_no.nextval,'유저02','계층구조로 정렬하기.  출처: https://blog.kjslab.com/11','19-03-29'); 
 insert into reply values(2,seq_reply_no.nextval,'유저03','계층구조로 정렬하기.  출처: https://blog.kjslab.com/11','19-03-18'); 
 insert into reply values(2,seq_reply_no.nextval,'유저04','계층구조로 정렬하기.  출처: https://blog.kjslab.com/11','19-03-18'); 

@@ -8,8 +8,7 @@
 </head>
 <body>
 	<a href="board.do">게시판 가기</a>
-	
-
-
+	<a href = "replyall.do">댓글</a>
+	<a href = "replywrite.do">댓글작성</a>
 </body>
 </html>

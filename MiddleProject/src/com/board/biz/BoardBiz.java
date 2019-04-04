@@ -16,14 +16,13 @@ public class BoardBiz {
 	@Autowired
 	BoardDaoImpl boardDaoImpl;
 
-	public List<BoardVo> getAll() {
-		return boardDaoImpl.getAll();
+	public List<BoardVo> getcontentAll() {
+		return boardDaoImpl.getcontentAll();
 	}
 
 	public int getInsert(BoardVo boardVo) {
 		return boardDaoImpl.getInsert(boardVo);
 	}
-
 	public int getDelete(int no) {
 		return boardDaoImpl.getDelete(no);
 	}
@@ -44,4 +43,12 @@ public class BoardBiz {
 		return boardDaoImpl.updateReadCount(no);
 	}
 
+	public List<BoardVo> getReplyAll(){
+		return boardDaoImpl.getReplyAll();
+	}
+	
+	public int replyinsert(BoardVo boardVo) {
+		return boardDaoImpl.replyinsert(boardVo);
+	}
+	
 }
