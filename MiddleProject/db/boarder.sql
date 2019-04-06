@@ -6,9 +6,9 @@ Alter table reply add r_regdate date;
 drop table boarder cascade constraints;
 drop sequence seq_boarder_no;
 drop table reply;
-drop sequence seq_reply_no;
+drop sequence seq_reply_r_no;
 
-// boarder table »ý¼º
+// boarder table 
 create table boarder(
                no number(4) primary key,
                title varchar2(100) not null,
@@ -18,9 +18,9 @@ create table boarder(
                n_id varchar2(20) references member(n_id),
                contentType char,
                contents varchar2(3600) not null 
+         	   
                ) 
-               // 8°³ ÄÃ·³
-// reply table »ý¼º                 
+// reply table ï¿½ï¿½ï¿½ï¿½                 
 create table reply(
                no number(4) references boarder(no),
                r_no number(4) primary key,
@@ -35,100 +35,81 @@ start with 1
 nocycle
 nocache;
               
-create sequence seq_reply_no
+create sequence seq_reply_r_no
 increment by 1
 start with 1
 nocycle
 nocache;         
 
 select * from boarder;
-//no title viewcount regdate subtitle r_n_id contentType contents 8°³ ÄÃ·³
-insert into boarder values(seq_boarder_no.nextval,'µû·Î Ç¥ÇöÇÏ´Â ¹æ¹ýÀº',232,'19-03-28','Á¤º¸','À¯Àú01','1','ÀÌ´Â ¾î´À ÇÑ ... ÇÕ´Ï´Ù.');
-insert into boarder values(seq_boarder_no.nextval,'°ü°èÇü µ¥ÀÌÅÍº£ÀÌ½º',22,'19-03-27','Á¤º¸','À¯Àú02','1','ÀÌ´Â ¾î´À ÇÑ ... ½´ÆÛÅ°¶õ, Æ©ÇÃÀ» À¯ÀÏÇÏ°Ô ½Äº°ÇÒ ¼ö ÀÖ´Â ÇÏ³ªÀÇ ¼Ó¼º È¤Àº ¼Ó¼ºÀÇ ÁýÇÕÀ» ¸»ÇÕ´Ï´Ù.');
-insert into boarder values(seq_boarder_no.nextval,' Å°´Â °¢°¢ Æ©ÇÃ',123,'19-03-26','Á¤º¸','À¯Àú03','1','ÀÌ´Â ¾î´À ÇÑ ... ½´ÆÛÅ°¶õ, Æ©ÇÃÀ» À¯ÀÏÇÏ°Ô ½Äº°ÇÒ ¼ö ÀÖ´Â ÇÏ³ªÀÇ ¼Ó¼º È¤Àº ¼Ó¼ºÀÇ ÁýÇÕÀ» ¸»ÇÕ´Ï´Ù.');
-insert into boarder values(seq_boarder_no.nextval,'ÀÌÅÍ Á¤ÀÇ¾ð¾î·Î ÀÛ¼º',40,'19-03-25','Á¤º¸','À¯Àú04','1','ÀÌ´Â ¾î´À ÇÑ ... ½´ÆÛÅ°¶õ, Æ©ÇÃÀ» À¯ÀÏÇÏ°Ô ½Äº°ÇÒ ¼ö ÀÖ´Â ÇÏ³ªÀÇ ¼Ó¼º È¤Àº ¼Ó¼ºÀÇ ÁýÇÕÀ» ¸»ÇÕ´Ï´Ù.');
-insert into boarder values(seq_boarder_no.nextval,' ½´ÆÛÅ°(Super Key) : º¹ÇÕÅ°(Àº',96,'19-03-24','Á¤º¸','À¯Àú01','1','ÀÌ´Â ¾î´À ÇÑ ... ½´ÆÛÅ°¶õ, Æ©ÇÃÀ» À¯ÀÏÇÏ°Ô ½Äº°ÇÒ ¼ö ÀÖ´Â ÇÏ³ªÀÇ ¼Ó¼º È¤Àº ¼Ó¼ºÀÇ ÁýÇÕÀ» ¸»ÇÕ´Ï´Ù.');
-insert into boarder values(seq_boarder_no.nextval,'Á¶¾çÈ£ ÀÌ¾î ¹Ú»ï±¸µµÀº',1315,'19-03-23','Á¤º¸','À¯Àú05','1','ÀÌ´Â ¾î´À ÇÑ ... ½´ÆÛÅ°¶õ, Æ©ÇÃÀ» À¯ÀÏÇÏ°Ô ½Äº°ÇÒ ¼ö ÀÖ´Â ÇÏ³ªÀÇ ¼Ó¼º È¤Àº ¼Ó¼ºÀÇ ÁýÇÕÀ» ¸»ÇÕ´Ï´Ù.');
-insert into boarder values(seq_boarder_no.nextval,'Ã¤¿ë¹ý  ±¹È¸ º»È¸ÀÇ Åë°ú',156,'19-03-22','Á¤º¸','À¯Àú06','1','ÀÌ´Â ¾î´À ÇÑ ... ½´ÆÛÅ°¶õ, Æ©ÇÃÀ» À¯ÀÏÇÏ°Ô ½Äº°ÇÒ ¼ö ÀÖ´Â ÇÏ³ªÀÇ ¼Ó¼º È¤Àº ¼Ó¼ºÀÇ ÁýÇÕÀ» ¸»ÇÕ´Ï´Ù.');
-insert into boarder values(seq_boarder_no.nextval,'±âÃÊÇÐ·Â ¹Ì´Þ Áõ',978,'19-03-20','Á¤º¸','À¯Àú07','1','ÀÌ´Â ¾î´À ÇÑ ... ½´ÆÛÅ°¶õ, Æ©ÇÃÀ» À¯ÀÏÇÏ°Ô ½Äº°ÇÒ ¼ö ÀÖ´Â ÇÏ³ªÀÇ ¼Ó¼º È¤Àº ¼Ó¼ºÀÇ ÁýÇÕÀ» ¸»ÇÕ´Ï´Ù.');
-insert into boarder values(seq_boarder_no.nextval,'ÄÚ½ºÇÇ 2,120´ë·Î ',1523,'19-03-21','Á¤º¸','À¯Àú03','1','ÀÌ´Â ¾î´À ÇÑ ... ½´ÆÛÅ°¶õ, Æ©ÇÃÀ» À¯ÀÏÇÏ°Ô ½Äº°ÇÒ ¼ö ÀÖ´Â ÇÏ³ªÀÇ ¼Ó¼º È¤Àº ¼Ó¼ºÀÇ ÁýÇÕÀ» ¸»ÇÕ´Ï´Ù.');
-insert into boarder values(seq_boarder_no.nextval,'±èÇÐÀÇ Ãâ±¹±ÝÁö ¿©ºÎ ¹Ì¸® ¾Ë¾ÆºÃ´ÙÀº',4156,'19-03-22','Á¤º¸','À¯Àú01','1','ÀÌ´Â ¾î´À ÇÑ ... ½´ÆÛÅ°¶õ, Æ©ÇÃÀ» À¯ÀÏÇÏ°Ô ½Äº°ÇÒ ¼ö ÀÖ´Â ÇÏ³ªÀÇ ¼Ó¼º È¤Àº ¼Ó¼ºÀÇ ÁýÇÕÀ» ¸»ÇÕ´Ï´Ù.');
-insert into boarder values(seq_boarder_no.nextval,'Çà Ãß¶ô»ç 10´ëµé¡¦ÃÖ´ë Â¡¿ª 10³â ±¸Çü',15,'19-03-28','Á¤º¸','À¯Àú04','1','ÀÌ´Â ¾î´À ÇÑ ... ½´ÆÛÅ°¶õ, Æ©ÇÃÀ» À¯ÀÏÇÏ°Ô ½Äº°ÇÒ ¼ö ÀÖ´Â ÇÏ³ªÀÇ ¼Ó¼º È¤Àº ¼Ó¼ºÀÇ ÁýÇÕÀ» ¸»ÇÕ´Ï´Ù.');
+//no title viewcount regdate subtitle r_n_id contentType contents 8ï¿½ï¿½ ï¿½Ã·ï¿½
 
+
+               
+insert into boarder values(seq_boarder_no.nextval,'ì‚°ì±…ë¡œ ì¶”ì²œ',0,sysdate,null,'ìœ ì €01','1','ë‚ ì”¨ ë„˜ë‚˜ ì¢‹ìŒ^~^');
+insert into boarder values(seq_boarder_no.nextval,'ì‚°ì±…ë¡œ ì¶”2ì²œ2',0,sysdate,null,'ìœ ì €01','1','ë‚ ì”¨ ë„˜ë‚˜ ì¢‹ìŒ^~^2222');
+insert into boarder values(seq_boarder_no.nextval,'ì‚°ì±…ë¡œ ì¶”2ì²œ2',0,sysdate,null,'aaa','1','ë‚ ì”¨ ë„˜ë‚˜ ì¢‹ìŒ^~^2222');
 
    
    
 //no r_no r_n_id r_contents
-insert into reply values(75,seq_reply_no.nextval,'À¯Àú01','°èÃþ±¸Á¶·Î Á¤·ÄÇÏ±â.  ÃâÃ³: https://blog.kjslab.com/11','19-03-28'); 
-insert into reply values(77,seq_reply_no.nextval,'À¯Àú02','°èÃþ±¸Á¶·Î Á¤·ÄÇÏ±â.  ÃâÃ³: https://blog.kjslab.com/11','19-03-29'); 
-insert into reply values(1,seq_reply_no.nextval,'À¯Àú02','°èÃþ±¸Á¶·Î Á¤·ÄÇÏ±â.  ÃâÃ³: https://blog.kjslab.com/11','19-03-29'); 
-insert into reply values(2,seq_reply_no.nextval,'À¯Àú03','°èÃþ±¸Á¶·Î Á¤·ÄÇÏ±â.  ÃâÃ³: https://blog.kjslab.com/11','19-03-18'); 
-insert into reply values(2,seq_reply_no.nextval,'À¯Àú04','°èÃþ±¸Á¶·Î Á¤·ÄÇÏ±â.  ÃâÃ³: https://blog.kjslab.com/11','19-03-18'); 
-insert into reply values(2,seq_reply_no.nextval,'À¯Àú01','°èÃþ±¸Á¶·Î Á¤·ÄÇÏ±â.  ÃâÃ³: https://blog.kjslab.com/11','19-03-19'); 
-insert into reply values(4,seq_reply_no.nextval,'À¯Àú04','°èÃþ±¸Á¶·Î Á¤·ÄÇÏ±â.  ÃâÃ³: https://blog.kjslab.com/11','19-03-16'); 
-insert into reply values(4,seq_reply_no.nextval,'À¯Àú04','°èÃþ±¸Á¶·Î Á¤·ÄÇÏ±â.  ÃâÃ³: https://blog.kjslab.com/11','19-03-16'); 
-insert into reply values(5,seq_reply_no.nextval,'À¯Àú01','°èÃþ±¸Á¶·Î Á¤·ÄÇÏ±â.  ÃâÃ³: https://blog.kjslab.com/11','19-03-25'); 
-insert into reply values(5,seq_reply_no.nextval,'À¯Àú05','°èÃþ±¸Á¶·Î Á¤·ÄÇÏ±â.  ÃâÃ³: https://blog.kjslab.com/11','19-03-26'); 
-insert into reply values(5,seq_reply_no.nextval,'À¯Àú01','°èÃþ±¸Á¶·Î Á¤·ÄÇÏ±â.  ÃâÃ³: https://blog.kjslab.com/11','19-03-26'); 
-insert into reply values(11,seq_reply_no.nextval,'À¯Àú05','°èÃþ±¸Á¶·Î Á¤·ÄÇÏ±â.  ÃâÃ³: https://blog.kjslab.com/11','19-03-28'); 
-insert into reply values(11,seq_reply_no.nextval,'À¯Àú01','°èÃþ±¸Á¶·Î Á¤·ÄÇÏ±â.  ÃâÃ³: https://blog.kjslab.com/11','19-03-28'); 
-insert into reply values(11,seq_reply_no.nextval,'À¯Àú05','°èÃþ±¸Á¶·Î Á¤·ÄÇÏ±â.  ÃâÃ³: https://blog.kjslab.com/11','19-03-28'); 
-insert into reply values(9,seq_reply_no.nextval,'À¯Àú01','°èÃþ±¸Á¶·Î Á¤·ÄÇÏ±â.  ÃâÃ³: https://blog.kjslab.com/11','19-03-28'); 
-insert into reply values(10,seq_reply_no.nextval,'À¯Àú01','',''); 
+insert into reply values(1,seq_reply_r_no.nextval,'ìœ ì €02','ì‘ë“£ë¼ë‘ë¼: https://blog.kjslab.com/11','19-03-29'); 
+insert into reply values(2,seq_reply_r_no.nextval,'ìœ ì €01','ì‘ì‘ìœ¼ì‘ìœ¼ì‘: https://blog.kjslab.com/11','19-03-29'); 
+insert into reply values(2,seq_reply_r_no.nextval,'aaa','ì‘ì‘ìœ¼ì‘ìœ¼ì‘: https://blog.kjslab.com/11','19-03-29'); 
 select * from boarder;
-select * from reply;
+select * from reply where no = 75;
 
 // join test 
 
-// ´ñ±Û ¸®½ºÆ® test
+// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® test
 select b.no,b.title, b.regdate, b.n_id, b.contents, r.r_no, r.n_id, r.r_regdate, r.r_contents from boarder b, reply r where b.no(+)=r.no order by r_regdate, b.no, r.r_no; 
-// ´ñ±ÛÀ» Ã£À» ÇÊ¿ä°¡ ÀÖÀ»±î? // ¸¸¾à ´ñ±ÛÀ» Ã£À» ÇÊ¿ä°¡ ÀÖ´Ù¸é ´ñ±Û Ã£À» ¶§ reply tableÀÇ rownumÀ¸·Î Ã£´Â ¹æ¹ý »ý°¢ ÇØ º¸±â.
+// ï¿½ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½Ê¿ä°¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½? // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½Ê¿ä°¡ ï¿½Ö´Ù¸ï¿½ ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½ï¿½ reply tableï¿½ï¿½ rownumï¿½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 select r.r_no, r.n_id, b.contents, r.r_contents,b.regdate,r.r_regdate from boarder b, reply r where b.no(+)=r.no order by r_regdate, b.no, r.r_no;
 select count(*) from boarder b, reply r where b.no=r.no(+) order by r_regdate, b.no, r.r_no;
 select count(*) from boarder b, reply r where b.no(+)=r.no order by r_regdate, b.no, r.r_no; 
 select count(*) from boarder b, reply r where b.no=r.no(+) and r.n_id is null order by r_regdate, b.no, r.r_no; 
 
-/* °Ô½ÃÆÇ ¸®½ºÆ®(board.jsp)*/
+/* ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®(board.jsp)*/
 // getAll
 select no, subtitle, title, n_id, viewcount, regdate from boarder;
 
 // FindById, FindBySubtitle, FindByTitle
 select no, subtitle, title, n_id, viewcount, regdate from boarder where n_id='?';
-select no, subtitle, title, n_id, viewcount, regdate from boarder where subtitle='?';
+select no, subtitle, title, n_id, viewcount, regdate from boarder where ?';
 select no, subtitle, title, n_id, viewcount, regdate from boarder where title like '%?%'); 
 
 // InsertAll
 insert into boarder (no, subtitle, title, n_id, viewcount, regdate) values (?,?,?,?,?,?);
 
-// DeleteAll ¸®½ºÆ®, ±Û³»¿ë, ´ñ±Û±îÁö ÇÑ²¨¹ø¿¡ »èÁ¦?! cascade ÀÌ¿ë
+// DeleteAll ï¿½ï¿½ï¿½ï¿½Æ®, ï¿½Û³ï¿½ï¿½ï¿½, ï¿½ï¿½Û±ï¿½ï¿½ï¿½ ï¿½Ñ²ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½?! cascade ï¿½Ì¿ï¿½
 delete from boarder where no = ? cascade;
 
-// UpdateAll : ¸®½ºÆ®, ±Û³»¿ë ¼öÁ¤ ¼öÁ¤ÀÏ Ãß°¡ÇØ¾ßÇÏ³ª...?!
+// UpdateAll : ï¿½ï¿½ï¿½ï¿½Æ®, ï¿½Û³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½Ø¾ï¿½ï¿½Ï³ï¿½...?!
 update boarder set subtitle=?, title=?, regdate=? where no=?;
 
 
 
-/* °Ô½Ã±Û, ´ñ±Û ÀÐ±â : joinÀ¸·Î ÁøÇà!(Boardcontent.jsp) ¹«¾ùÀ» ¾²´ÂÁö ¸ô¶ó 3°¡Áö °æ¿ì ¸ðµÎ ÀÛ¼º. */
+/* ï¿½Ô½Ã±ï¿½, ï¿½ï¿½ï¿½ ï¿½Ð±ï¿½ : joinï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½!(Boardcontent.jsp) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 3ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½. */
 
-// °Ô½Ã±Û ÀüÃ¼¿¡ ´ñ±Û ¾ø´Â °Íµµ null·Î Ã¤¿öÁ®¼­ ³ª¿È // 1°³ÀÇ °Ô½Ã±Û¿¡ ´ñ±Û ¿©·¯°³°¡ ÀÖ´Ù¸é 1°³ÀÇ °Ô½Ã±Û ³»¿ë Áßº¹À¸·Î ¿©·¯°³+°¢°¢ÀÇ ´ñ±Û
+// ï¿½Ô½Ã±ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Íµï¿½ nullï¿½ï¿½ Ã¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ // 1ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½Ã±Û¿ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Ù¸ï¿½ 1ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½Ã±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ßºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 select b.no,b.title, b.regdate, b.n_id, b.contents, r.r_no, r.n_id, r.r_regdate, r.r_contents from boarder b, reply r where b.no=r.no(+) order by r_regdate, b.no, r.r_no; 
-// °Ô½Ã±Û¿¡ ´ñ±Û ÀÖ´Â °Í¸¸ Ãâ·Â
+// ï¿½Ô½Ã±Û¿ï¿½ ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½
 select b.no,b.title, b.regdate, b.n_id, b.contents, r.r_no, r.n_id, r.r_regdate, r.r_contents from boarder b, reply r where b.no(+)=r.no order by r_regdate, b.no, r.r_no; 
-// °Ô½Ã±Û¿¡ ´ñ±Û ¾ø´Â °Í¸¸ Ãâ·Â
+// ï¿½Ô½Ã±Û¿ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½
 select b.no,b.title, b.regdate, b.n_id, b.contents, r.r_no, r.n_id, r.r_regdate, r.r_contents from boarder b, reply r where b.no=r.no(+) and r.n_id is null order by r_regdate, b.no, r.r_no; 
 
 
-/* °Ô½Ã±Û */
-// InsertBoard >> À§ÀÇ InsertAll°ú ´Ù¸¥ Á¡Àº ³»¿ëÀÌ µé¾î°£´Ù´Â Á¡? ¿©±â¼­ Ãß°¡ÇÒ¶§ InsertAll¿¡µµ µ¿½Ã¿¡ °°Àº ³»¿ëÀÌ Ãß°¡ µÇ¾î¾ß ÇÔ.
+/* ï¿½Ô½Ã±ï¿½ */
+// InsertBoard >> ï¿½ï¿½ï¿½ï¿½ InsertAllï¿½ï¿½ ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½î°£ï¿½Ù´ï¿½ ï¿½ï¿½? ï¿½ï¿½ï¿½â¼­ ï¿½ß°ï¿½ï¿½Ò¶ï¿½ InsertAllï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½Ç¾ï¿½ï¿½ ï¿½ï¿½.
 insert into boarder (no, subtitle, title, n_id, viewcount, regdate, contents) values (?,?,?,?,?,?,?);
 
-// DeleteBoard >> À§ÀÇ DeleteAll°ú ¹«¾ùÀÌ ´Ù¸¦±î? 
+// DeleteBoard >> ï¿½ï¿½ï¿½ï¿½ DeleteAllï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ï¿½ï¿½? 
 
-// UpdateBoard >> defalut°ªÀ¸·Î ¿ø·¡ ÀÖ´Â °ªÀ» ÁÖ°í º¯°æÇÏ´Â ¹æÇâ.
+// UpdateBoard >> defalutï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½.
 update boarder set contents=? where no=?;
 
  
-/* ´ñ±Û no r_no n_id r_contents r_regdate */
+/* ï¿½ï¿½ï¿½ no r_no n_id r_contents r_regdate */
 // InsertReply
 insert into reply (no, r_no, n_id, r_regdate, r_contents) values (?,?,?,?,?);
 

@@ -42,15 +42,15 @@ public class BoardController {
 	public ModelAndView openBoardList() throws Exception {
 		List<BoardVo> list = boardBiz.getcontentAll();
 
-		ModelAndView mav = new ModelAndView("/WEB-INF/View/Board/Board.jsp");// ¿Ãµø«“ ∆‰¿Ã¡ˆ ¡ˆ¡§
-		mav.addObject("list", list); // µ•¿Ã≈Õ ¿˙¿Â
-		return mav; // ∆‰¿Ã¡ˆ ¿Ãµø(√‚∑¬)
+		ModelAndView mav = new ModelAndView("/WEB-INF/View/Board/Board.jsp");// 
+		mav.addObject("list", list); // 
+		return mav; // 
 	}
 
 	@RequestMapping(value = "/readcontent.do", method = RequestMethod.GET)
 	public ModelAndView readBoardList(@RequestParam("no") int no) throws Exception {
 		BoardVo result = boardBiz.readContent(no);
-		ModelAndView mav = new ModelAndView("/WEB-INF/View/Board/BoardContent.jsp"); // ¿Ãµø«“ ∆‰¿Ã¡ˆ ¡ˆ¡§
+		ModelAndView mav = new ModelAndView("/WEB-INF/View/Board/BoardContent.jsp"); // 
 		mav.addObject("result", result);
 		return mav;
 	}
@@ -66,17 +66,17 @@ public class BoardController {
 
 
 		List<BoardVo> list = boardBiz.getcontentAll();
-		ModelAndView mav = new ModelAndView("board.do"); // ¿Ãµø«“ ∆‰¿Ã¡ˆ ¡ˆ¡§
+		ModelAndView mav = new ModelAndView("board.do"); // ÔøΩÃµÔøΩÔøΩÔøΩ ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ ÔøΩÔøΩÔøΩÔøΩ
 		mav.addObject("list", list);
 		return mav;
 	}
 
-//find.do -> ∞·∞˙∏¶ update
+//find.do -> ÔøΩÔøΩÔøΩÔøΩÔøΩ update
 	//
 	@RequestMapping(value = "/updatecontent.do", method = { RequestMethod.GET, RequestMethod.POST })
 	public ModelAndView updateBoardList(@RequestParam int no) throws Exception {
 		BoardVo result = boardBiz.readContent(no);
-		ModelAndView mav = new ModelAndView("/WEB-INF/View/Board/BoardUpdate.jsp"); // ¿Ãµø«“ ∆‰¿Ã¡ˆ ¡ˆ¡§
+		ModelAndView mav = new ModelAndView("/WEB-INF/View/Board/BoardUpdate.jsp"); // 
 		mav.addObject("result", result);
 		return mav;
 	}
@@ -85,7 +85,7 @@ public class BoardController {
 	public ModelAndView updatefinish(@ModelAttribute BoardVo vo) throws Exception {
 		int result = boardBiz.getUpdate(vo);
 		List<BoardVo> list = boardBiz.getcontentAll();
-		ModelAndView mav = new ModelAndView("board.do"); // ¿Ãµø«“ ∆‰¿Ã¡ˆ ¡ˆ¡§
+		ModelAndView mav = new ModelAndView("board.do"); // 
 		mav.addObject("list", list);
 		return mav;
 
@@ -97,29 +97,29 @@ public class BoardController {
 		return "/board.do";
 	}
 
-	@RequestMapping(value = "/replyall.do") // ¥Ò±€ ∫∏±‚
+	@RequestMapping(value = "/replyall.do", method = { RequestMethod.GET, RequestMethod.POST }) // 
 	public ModelAndView replyall() throws Exception {
 		List<BoardVo> li = boardBiz.getReplyAll();
 		ModelAndView mav = new ModelAndView("/WEB-INF/View/Board/Reply_All.jsp");
-		mav.addObject("li", li); // µ•¿Ã≈Õ ¿˙¿Â
+		mav.addObject("li", li); // 
 		return mav;
 	}
 
-	@RequestMapping(value = "/replywrite.do") // ¥Ò±€ ¿€º∫
+	@RequestMapping(value = "/replywrite.do", method = { RequestMethod.GET, RequestMethod.POST }) // 
 	public ModelAndView replywrite() throws Exception {
 		ModelAndView mav = new ModelAndView("/WEB-INF/View/Board/Reply_Write.jsp");
 		return mav;
 	}
 
-	
-	@RequestMapping(value = "/replyinsert.do", method = { RequestMethod.GET, RequestMethod.POST }) // ¥Ò±€ æ≤±‚ 
+
+	@RequestMapping(value = "/replyinsert.do", method = { RequestMethod.GET, RequestMethod.POST }) //
 	public ModelAndView replyinsert(@RequestParam("no") int no, @ModelAttribute BoardVo boardVo) throws Exception{
-		List<BoardVo> list = boardBiz.getReplyAll();
-		BoardVo result = boardBiz.readContent(no);
-		ModelAndView mav = new ModelAndView("/readcontent.do"); // ¿Ãµø«“ ∆‰¿Ã¡ˆ ¡ˆ¡§
-		mav.addObject("list", list);
-		mav.addObject("result", result);
+		int r = boardBiz.replyinsert(boardVo);
+		ModelAndView mav = new ModelAndView("/readcontent.do?no="+no); // 
+		//mav.addObject("list", list);
+		//mav.addObject("result", result);
 		return mav;
 			
+		
 	}
 }

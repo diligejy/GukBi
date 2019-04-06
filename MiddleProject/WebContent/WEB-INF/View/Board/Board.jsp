@@ -27,17 +27,18 @@
 				<td><a href="readcontent.do?no=${row.no}">${row.title}</a></td>
 				<td>${row.n_id}</td>
 				<td>
-					<!-- 데이터 타입을 사용하는 방법 --> <fmt:formatDate value="${row.regdate}"
-						pattern="yyyy-MM-dd HH:mm:ss" />
+					<!-- aaa데이터 타입을 사용하는 방법 --> <fmt:parseDate value='${row.regdate}'
+						var='regdate' pattern='yy/mm/dd' />
+						 <fmt:formatDate value="${row.regdate}" pattern="yy/mm/dd" />
 				</td>
 				<td>${row.viewcount}</td>
 			</tr>
 		</c:forEach>
 	</table>
-	
-	
-	<a href= "boardwrite.do">게시물 작성</a>
-	<a href = "updatecontent.do">게시물 수정</a>
+
+
+	<a href="boardwrite.do">게시물 작성</a>
+	<a href="updatecontent.do">게시물 수정</a>
 	<a href="deletecontent.do">게시물 삭제</a>
 </body>
 </html>

@@ -9,7 +9,7 @@ public class BoardVo {
 	private int no;
 	private String title;
 	private int viewcount;
-	private Date regdate;
+	private String regdate;
 	private String subtitle;
 	private String n_id;
 	private String contentType;
@@ -18,14 +18,14 @@ public class BoardVo {
 	private String r_n_id;
 	private String r_contents;
 	private String url;
-	private Date r_regdate;
+	private String r_regdate;
 	private MultipartFile file;
 
-	public Date getR_regdate() {
+	public String getR_regdate() {
 		return r_regdate;
 	}
 
-	public void setR_regdate(Date r_regdate) {
+	public void setR_regdate(String r_regdate) {
 		this.r_regdate = r_regdate;
 	}
 
@@ -65,11 +65,11 @@ public class BoardVo {
 		this.viewcount = viewcount;
 	}
 
-	public Date getRegdate() {
+	public String getRegdate() {
 		return regdate;
 	}
 
-	public void setRegdate(Date date) {
+	public void setRegdate(String date) {
 		this.regdate = date;
 	}
 

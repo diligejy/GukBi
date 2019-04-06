@@ -46,14 +46,13 @@
 		});
 	</script>
 	<!-- 댓글 작성 -->
-	<form id="contents" action="replyinsert.do?no=<%=bv.getNo()%>"
-		method="POST" enctype="multipart/form-data">
-		
-		아이디 <input name="r_n_id" id="r_n_id" /><br> 
-		내용 <input name="r_contents" id="r_contents" /><br> 
+	<form id="contents" action="replyinsert.do">
+
 		<div style="width: 700px; text-align: center;">
-			<textarea rows="5" cols="80" id="replytext" placeholder="댓글을 작성하세요"></textarea>
+		아이디 <input name="r_n_id" id="r_n_id" /><br> 
+		내용 <input name="r_contents" id="r_contents" /><br>
 			<br> <input type="submit" value="댓글쓰기">
+			<input type= "hidden"  name = "no" value = "<%=bv.getNo()%>">
 		</div>
 	</form>
 	<br>

@@ -41,16 +41,16 @@ public class BoardDaoImpl implements BoardDao, SqlInter {
 				board.setNo(rs.getInt("no"));
 				board.setTitle(rs.getString("title"));
 				board.setViewcount(rs.getInt("viewcount"));
-				board.setRegdate(rs.getDate("regdate"));
+				board.setRegdate(rs.getString("regdate"));
 				board.setSubtitle(rs.getString("subtitle"));
 				board.setN_id(rs.getString("n_id"));
 				board.setContentType(rs.getString("contentType"));
 				board.setContents(rs.getString("contents"));
-				
+
 				return board;
 			}
 		});
-	
+
 		return getAll;
 	}
 
@@ -59,7 +59,7 @@ public class BoardDaoImpl implements BoardDao, SqlInter {
 		String sql = "insert into boarder (no,title,viewcount,regdate,subtitle,n_id,contentType,contents) values (seq_boarder_no.nextval,?,0,sysdate,?,?,1,?)";
 		Object[] obj = { boardVo.getTitle(), boardVo.getSubtitle(), boardVo.getN_id(), boardVo.getContents() };
 		return jdbcTemplate.update(sql, obj);
-// Date Çü½Ä yyyy-mm-dd , Int, 
+// Date ï¿½ï¿½ï¿½ï¿½ yyyy-mm-dd , Int, 
 	}
 
 	@Override
@@ -92,7 +92,7 @@ public class BoardDaoImpl implements BoardDao, SqlInter {
 				board.setNo(rs.getInt("no"));
 				board.setTitle(rs.getString("title"));
 				board.setViewcount(rs.getInt("viewcount"));
-				board.setRegdate(rs.getDate("regdate"));
+				board.setRegdate(rs.getString("regdate"));
 				board.setSubtitle(rs.getString("subtitle"));
 				board.setN_id(rs.getString("n_id"));
 				board.setContentType(rs.getString("contentType"));
@@ -119,13 +119,12 @@ public class BoardDaoImpl implements BoardDao, SqlInter {
 		getAll = jdbcTemplate.query(sql, new RowMapper<BoardVo>() {
 			public BoardVo mapRow(ResultSet rs, int rowNum) throws SQLException {
 				BoardVo board = new BoardVo();
-			
+
 				board.setNo(rs.getInt("no"));
 				board.setR_no(rs.getInt("r_no"));
 				board.setR_n_id(rs.getString("r_n_id"));
 				board.setR_contents(rs.getString("r_contents"));
-				board.setR_regdate(rs.getDate("r_regdate"));
-				System.out.println(board);
+				board.setR_regdate(rs.getString("r_regdate"));
 				return board;
 			}
 		});
@@ -134,10 +133,10 @@ public class BoardDaoImpl implements BoardDao, SqlInter {
 
 	@Override
 	public int replyinsert(BoardVo boardVo) {
-		
-		String sql = "insert into reply (r_no,r_n_id, r_contents, r_regdate) values (seq_reply_r_no.nextval, ?, ?, sysdate) where no = ?";
-		Object[] obj = { boardVo.getR_n_id(), boardVo.getR_contents() };
+
+		String sql = "insert into reply (no, r_no, r_n_id, r_contents, r_regdate) values (?, seq_reply_r_no.nextval, ?, ?, sysdate)";
+		Object[] obj = { boardVo.getNo(), boardVo.getR_n_id(), boardVo.getR_contents() };
 		return jdbcTemplate.update(sql, obj);
 	}
-	
+
 }

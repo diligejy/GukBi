@@ -2,39 +2,70 @@ drop table member;
 
 
 create table member(
-
 id varchar2(20) primary key,
 pw varchar2(20) NOT NULL,
-n_id varchar2(20) NOT NULL UNIQUE,
-tel varchar2(20) NOT NULL,
-sido varchar2(20) NOT NULL,
-gu varchar2(20) NOT NULL,
-doro varchar2(20) NOT NULL,
-d_juso varchar2(50),
-postno varchar2(20) NOT NULL,
-email varchar2(20) NOT NULL UNIQUE,
-u_sex varchar(1) NOT NULL,
-u_birthday date NOT NULL,
 u_name varchar2(20) NOT NULL,
-u_enrollday date NOT NULL,
-status varchar(1) NOT NULL,
-manage varchar(1) NOT NULL,
+n_id varchar2(20) NOT NULL UNIQUE,
+u_birthday date NOT NULL,
+u_sex varchar(1) NOT NULL,
+zonecode  varchar2(20) NOT NULL,
+sido  varchar2(100) NOT NULL,
+sigungu  varchar2(100) NOT NULL,
+roadname  varchar2(100) NOT NULL,
+d_juso varchar2(100),
+email varchar2(20) NOT NULL UNIQUE,
+tel varchar2(20) NOT NULL,
+status varchar(1),
+manage varchar(1),
 petcount number(20) NOT NULL,
 friend varchar(1),
 f_id varchar2(20)
 );
 
-insert into member values('user01','0001','À¯Àú01','010-01','¼­¿ï½Ã','¼­ÃÊ±¸','¼­¿î·Î 11±æ 35','¼­Èïºôµù 6Ãş 601È£','06727','user01@naver.com','2','1990-01-01','±èº½³¯','2019-03-26','1','1','1','1','user02');
-insert into member values('user02','0002','À¯Àú02','010-02','¼­¿ï½Ã','¼­ÃÊ±¸','¼­¿î·Î 11±æ 35','¼­Èïºôµù 6Ãş 602È£','06727','user02@naver.com','1','1991-02-02','±èÀçÂù','2019-03-26','1','2','1','1','user07');
-insert into member values('user03','0003','À¯Àú03','010-03','¼­¿ï½Ã','¼­ÃÊ±¸','¼­¿î·Î 11±æ 35','¼­Èïºôµù 6Ãş 603È£','06727','user03@naver.com','2','1992-03-03','ÇÑ¼Ò±İ','2019-03-26','1','0','1','1','user01');
-insert into member values('user04','0004','À¯Àú04','010-04','¼­¿ï½Ã','¼­ÃÊ±¸','¼­¿î·Î 11±æ 35','¼­Èïºôµù 6Ãş 604È£','06727','user04@naver.com','1','1993-04-04','ÇãÀ±¼ö','2019-03-26','0','1','1','1','user07');
-insert into member values('user05','0005','À¯Àú05','010-05','¼­¿ï½Ã','¼­ÃÊ±¸','¼­¿î·Î 11±æ 35','¼­Èïºôµù 6Ãş 605È£','06727','user05@naver.com','2','1994-05-05','¹Ú°¡À»','2019-03-26','1','1','1','1','user08');
-insert into member values('user06','0006','À¯Àú06','010-06','¼­¿ï½Ã','¼­ÃÊ±¸','¼­¿î·Î 11±æ 35','¼­Èïºôµù 6Ãş 606È£','06727','user06@naver.com','1','1995-06-06','ÀÌ»óÁØ','2019-03-26','0','0','1','1','user01');
-insert into member values('user07','0007','À¯Àú07','010-07','¼­¿ï½Ã','¼­ÃÊ±¸','¼­¿î·Î 11±æ 35','¼­Èïºôµù 6Ãş 607È£','06727','user07@naver.com','2','1996-07-07','ÃÖ±â»İ','2019-03-26','1','1','1','1','user09');
-insert into member values('user08','0008','À¯Àú08','010-08','¼­¿ï½Ã','¼­ÃÊ±¸','¼­¿î·Î 11±æ 35','¼­Èïºôµù 6Ãş 608È£','06727','user08@naver.com','1','1997-08-08','¼ÛÁø¿µ','2019-03-26','0','1','1','1','user09');
-insert into member values('user09','0009','À¯Àú09','010-09','¼­¿ï½Ã','¼­ÃÊ±¸','¼­¿î·Î 11±æ 35','¼­Èïºôµù 6Ãş 609È£','06727','user09@naver.com','2','1998-09-09','ÀÓ»õ¸²','2019-03-26','1','1','1','1','user01');
-insert into member values('user10','0010','À¯Àú10','010-10','¼­¿ï½Ã','¼­ÃÊ±¸','¼­¿î·Î 11±æ 35','¼­Èïºôµù 6Ãş 610È£','06727','user10@naver.com','1','1999-10-10','°í¹ÎÁß','2019-03-26','0','0','0','2','user01');
+
+insert into member values('user01','0001','ê¹€ë´„ë‚ ','ìœ ì €01','1901-01-01','1','15432','ì„œìš¸ì‹œ','ì„œì´ˆêµ¬','ì„œìš´ë¡œ 11ê¸¸ 35','ì„œí¥ë¹Œë”© 6ì¸µ 601í˜¸','user01@naver.com','010-01','1','1','1','1','user02');
+insert into member values('user02','0002','ê°•ì—¬ë¦„','ìœ ì €02','1902-02-02','2','25432','ì„œìš¸ì‹œ','ì„œì´ˆêµ¬','ì„œìš´ë¡œ 11ê¸¸ 35','ì„œí¥ë¹Œë”© 6ì¸µ 602í˜¸','user02@naver.com','010-02','1','1','2','1','user01');
+insert into member values('user03','0003','í•œì†Œê¸ˆ','ìœ ì €03','1903-03-03','1','35432','ì„œìš¸ì‹œ','ì„œì´ˆêµ¬','ì„œìš´ë¡œ 11ê¸¸ 35','ì„œí¥ë¹Œë”© 6ì¸µ 603í˜¸','user03@naver.com','010-03','1','1','1','1','user04');
+insert into member values('user04','0004','ê³ ê°€ì„','ìœ ì €04','1904-04-04','2','45432','ì„œìš¸ì‹œ','ì„œì´ˆêµ¬','ì„œìš´ë¡œ 11ê¸¸ 35','ì„œí¥ë¹Œë”© 6ì¸µ 604í˜¸','user04@naver.com','010-04','1','1','2','1','user03');
+insert into member values('user05','0005','ìœ ë¹›ë‚˜','ìœ ì €05','1905-05-05','2','45432','ì„œìš¸ì‹œ','ì„œì´ˆêµ¬','ì„œìš´ë¡œ 11ê¸¸ 35','ì„œí¥ë¹Œë”© 6ì¸µ 604í˜¸','user05@naver.com','010-04','1','1','2','1','user03');
+insert into member values('user06','0005','ìœ ë¹›ë‚˜','aaa','1905-05-05','2','45432','ì„œìš¸ì‹œ','ì„œì´ˆêµ¬','ì„œìš´ë¡œ 11ê¸¸ 35','ì„œí¥ë¹Œë”© 6ì¸µ 604í˜¸','user06@naver.com','010-04','1','1','2','1','user03');
+
 
 update member set n_id = 'aaa' where id = 'user09';
 
+select * from member where id = 'user01';
+
 select * from member;
+
+
+
+drop table pet;
+
+S
+create table pet(
+            id references member(id) on delete cascade,
+            p_name varchar2(20) ,
+            p_sex char ,
+            p_size char ,
+            p_birthdate date,
+            primary key(id,p_name)
+);
+
+
+insert into pet values('user01','ë©ë©ì´01','1','1','18-02-01');
+insert into pet values('user01','ë©ë©ì´02','2','3','18-02-01');
+insert into pet values('user02','ë©ë©ì´03','1','1','18-02-07');
+insert into pet values('user02','ë©ë©ì´04','2','3','18-01-01');
+insert into pet values('user03','ë©ë©ì´05','1','1','18-02-01');
+insert into pet values('user03','ë©ë©ì´06','2','3','18-02-01');
+insert into pet values('user04','ë©ë©ì´07','1','1','18-02-07');
+insert into pet values('user04','ë©ë©ì´08','2','3','18-01-01');
+insert into pet values('user05','ë©ë©ì´08','2','3','18-01-01');
+
+
+select * from pet;
+select p.p_name, p.p_sex, p.p_size, p.p_birthdate from member m, pet p where m.id=p.id(+) and m.id='user01'
+delete from pet where p_name='ë©ë©ì´07' and  id ='user04'
+delete from pet where p_name ='ë©ë©ì´08'
+insert into pet values ((select id from member where id='user05'),'ë©ë©ì´09','1','1','18-02-02');
+   update pet set p_sex = '1' where id='user02' and p_name = 'ë©ë©ì´04';
