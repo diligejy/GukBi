@@ -34,7 +34,7 @@
 		$(document).ready(function() {
 			$.ajax({
 				type : "GET",
-				url : "replyall.do",
+				url : "replyall.do?no=${bv.no}",
 				error : function() {
 					alert("통신실패!!");
 				},

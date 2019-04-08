@@ -27,9 +27,10 @@
 				<td><a href="readcontent.do?no=${row.no}">${row.title}</a></td>
 				<td>${row.n_id}</td>
 				<td>
-					<!-- aaa데이터 타입을 사용하는 방법 --> <fmt:parseDate value='${row.regdate}'
-						var='regdate' pattern='yy/mm/dd' />
-						 <fmt:formatDate value="${row.regdate}" pattern="yy/mm/dd" />
+					<!-- aaa데이터 타입을 사용하는 방법 --> 
+					
+						<fmt:parseDate var = "a" value="${row.regdate}" pattern="yyyy-MM-dd HH:mm:ss"/>
+						<fmt:formatDate value="${a}" pattern="yyyy/MM/dd HH:mm:ss"/>
 				</td>
 				<td>${row.viewcount}</td>
 			</tr>

@@ -18,9 +18,8 @@ create table boarder(
                n_id varchar2(20) references member(n_id),
                contentType char,
                contents varchar2(3600) not null 
-         	   
                ) 
-// reply table ����                 
+// reply table                 
 create table reply(
                no number(4) references boarder(no),
                r_no number(4) primary key,

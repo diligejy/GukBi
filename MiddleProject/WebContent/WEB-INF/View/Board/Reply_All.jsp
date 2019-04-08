@@ -34,8 +34,10 @@
 					<td>${row.r_n_id}</td>
 					<td>${row.r_contents}</td>
 					<td>
-						<!-- 데이터 타입을 사용하는 방법 --> <fmt:formatDate value="${row.r_regdate}"
-							pattern="yyyy-MM-dd HH:mm:ss" />
+						<!-- 데이터 타입을 사용하는 방법 --> 
+						<fmt:parseDate var = "r_regdate" value="${row.r_regdate}" pattern="yyyy-MM-dd HH:mm:ss"/>
+						<fmt:formatDate value="${r_regdate}" pattern="yyyy/MM/dd HH:mm:ss"/>
+
 					</td>
 				</tr>
 			</c:forEach>
